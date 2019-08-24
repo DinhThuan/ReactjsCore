@@ -9,8 +9,8 @@ export default class Form extends React.Component {
             account: '',
             country: '',
             description: '',
-            status: true,
-            gender: "1"
+            status: false,
+            gender: "-1"
         }
     }
 
@@ -34,7 +34,9 @@ export default class Form extends React.Component {
             email: 'dinhthuanvan@gmail.com',
             account: '123456',
             country: 'US',
-            description: 'Descript update'
+            description: 'Descript update',
+            status: true,
+            gender: "1"
         })
     }
     resetDataForm = () => {
