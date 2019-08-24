@@ -1,0 +1,2 @@
+create project :  create-react-app name_project
+usage scss in project run: npm install node-sass
