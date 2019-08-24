@@ -8,7 +8,9 @@ export default class Form extends React.Component {
             email: '',
             account: '',
             country: '',
-            description: ''
+            description: '',
+            status: true,
+            gender: "1"
         }
     }
 
@@ -17,9 +19,8 @@ export default class Form extends React.Component {
     }
     handleChange = (event) => {
         const target = event.target;
-        const value = target.value;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
@@ -74,29 +75,40 @@ export default class Form extends React.Component {
                             </select>
                         </div>
                     </div>
-
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label">Gender</label>
                         <div className="col-sm-10">
-                            <div className="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="male" name="customRadioInline1" className="custom-control-input" />
-                                <label className="custom-control-label">Male</label>
-                            </div>
-                            <div className="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="female" name="customRadioInline1" className="custom-control-input" />
-                                <label className="custom-control-label">female</label>
-                            </div>
+                            <label>
+                                <input type="radio" id="male" name="gender" value={0} checked={this.state.gender ==="0"} onChange={this.handleChange} />
+                                Male
+                            </label>
+
+                            <label >
+                                <input type="radio" id="female" name="gender" value={1} checked={this.state.gender==="1"} onChange={this.handleChange} />
+                                Female
+                            </label>
+                            <label>
+                                <input type="radio" id="female" name="gender" value={2} checked={this.state.gender==="2"} onChange={this.handleChange} />
+                                Other
+                            </label>
+
                         </div>
                     </div>
-
+                    <div className="form-group row">
+                        <label className="col-sm-2 col-form-label">Status</label>
+                        <div className="col-sm-10">
+                            <label>
+                                <input name="status" type="checkbox" checked={this.state.status} onChange={this.handleChange} />
+                                <span className="ml-2">Active</span>
+                            </label>
+                        </div>
+                    </div>
                     <div className="form-group row">
                         <label className="col-sm-2 col-form-label">Description</label>
                         <div className="col-sm-10">
                             <textarea type="text" className="form-control" name="description" placeholder="Description" onChange={this.handleChange} value={this.state.description} />
                         </div>
-
                     </div>
-
                     <div className="form-group row">
                         <label className="col-sm-2"></label>
                         <div className="col-sm-10">
@@ -104,7 +116,6 @@ export default class Form extends React.Component {
                             <button type="reset" className="btn btn-info ml-1" onClick={this.resetDataForm.bind()}>reset</button>
                             <button type="button" className="btn btn-success ml-1" onClick={this.setDataOnForm.bind(this)}>set data</button>
                         </div>
-
                     </div>
 
                 </form>
