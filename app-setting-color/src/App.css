@@ -1,0 +1,15 @@
+.span-color {
+  padding: 25px;
+  margin: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.active {
+  border: 3px solid black;
+}
+
+.p-content {
+  /* line-height: 30px; */
+  padding: 15px;
+}
