@@ -49,12 +49,12 @@ export default class Form extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div>
+                <div className="mt-5">
                     <input type="text" ref="info" />
                     <button onClick={this.onButton.bind(this)}>button</button>
                 </div>
                 <form onSubmit={this.onHandleSubmit}>
-                    <div className="form-group row mt-5">
+                    <div className="form-group row mt-3">
                         <label className="col-sm-2 col-form-label">Email address</label>
                         <div className="col-sm-10">
                             <input type="text" className="form-control" name="email" placeholder="Enter email" onChange={this.handleChange} value={this.state.email} />
