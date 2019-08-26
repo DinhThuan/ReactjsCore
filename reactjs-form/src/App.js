@@ -3,6 +3,7 @@ import './App.scss';
 import Form from './components/study-form/Form';
 import ModalAntd from './components/shared/ModalAntd';
 import { Button } from 'antd';
+import Lifecycles from './components/Lifecycles';
 
 export default class App extends React.Component {
 
@@ -27,7 +28,7 @@ export default class App extends React.Component {
                   <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Modal Ant Design</a>
                </li>
                <li className="nav-item">
-                  <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                  <a className="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Lifecycles</a>
                </li>
             </ul>
             <div className="tab-content" id="myTabContent">
@@ -40,7 +41,9 @@ export default class App extends React.Component {
                   </Button>
                   <ModalAntd ref="child" api="history" id={10}></ModalAntd>
                </div>
-               <div className="tab-pane fade" id="contact">...</div>
+               <div className="tab-pane fade" id="contact">
+                  <Lifecycles></Lifecycles>
+               </div>
             </div>
          </div>
       );
