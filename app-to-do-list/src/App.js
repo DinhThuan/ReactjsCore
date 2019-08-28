@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import Header from './components/Header';
+import TableTask from './components/TableTask';
 
 export default class App extends React.Component {
    state = {
@@ -22,48 +24,11 @@ export default class App extends React.Component {
       });
    }
 
-   formAddTask = () => {
-      // if (this.state.showAdd) {
-      return (
-         <div className="card border-success">
-            <div className="card-header text-white bg-success">
-               Add Task<i className="fas fa-times-circle float-right icon-close-header"></i>
-            </div>
-            <div className="card-body">
-               <form>
-                  <div className="form-group">
-                     <label>Name</label>
-                     <input type="email" className="form-control" id="email" placeholder="Enter email" />
-                  </div>
-                  <div className="form-group">
-                     <label>Status</label>
-                     <select type="password" className="form-control" id="status" placeholder="Password">
-                        <option>Hidden</option>
-                        <option>Active</option>
-                     </select>
-                  </div>
-                  <div className="form-check">
-                  </div>
-                  <button type="submit" className="btn btn-primary"><i className="fas fa-save"></i> Save</button>
-                  <button type="submit" className="btn btn-info ml-3">Cancel</button>
-               </form>
-            </div>
-         </div>
-      );
-      // } else {
-      //    return (
-      //       <h1>Form add Tast</h1>
-      //    );
-      // }
-
-   }
-
    render() {
       return (
          <React.Fragment>
             <div>
-               <h3 className="text-center">To do List</h3>
-               <hr></hr>
+               <Header></Header>
             </div>
             <div className="row">
                <div className="col-md-4 form-add-task">
@@ -88,7 +53,7 @@ export default class App extends React.Component {
                               <div className="form-check">
                               </div>
                               <button type="submit" className="btn btn-primary"><i className="fas fa-save"></i> Save</button>
-                              <button type="submit" className="btn btn-info ml-3">Cancel</button>
+                              <button type="submit" className="btn btn-info ml-3"><i className="fas fa-sync-alt"></i> Cancel</button>
                            </form>
                         </div>
                      </div>
@@ -129,47 +94,7 @@ export default class App extends React.Component {
                      </div>
 
                      <div className="row">
-                        <div className="col">
-                           <table className="table table-bordered table-sm border-primary">
-                              <thead>
-                                 <tr>
-                                    <th scope="col" width="50px">No.</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col" width="150px">Status</th>
-                                    <th scope="col" className="text-center" width="180px">Action</th>
-                                 </tr>
-                              </thead>
-                              <tbody>
-                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td><span className="label label-info">Info</span></td>
-                                    <td className="text-center">
-                                       <button className="bn btn-warning btn-sm"><i className="far fa-edit"></i> Edit</button>
-                                       <button className="bn btn-danger ml-2 btn-sm"><i className="far fa-trash-alt"></i> Delete</button>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td><span className="label label-danger">Danger</span></td>
-                                    <td className="text-center">
-                                       <button className="bn btn-warning btn-sm"><i className="far fa-edit"></i> Edit</button>
-                                       <button className="bn btn-danger ml-2 btn-sm"><i className="far fa-trash-alt"></i> Delete</button>
-                                    </td>
-                                 </tr>
-                                 <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry the Bird</td>
-                                    <td><span className="label label-danger">Danger</span></td>
-                                    <td className="text-center">
-                                       <button className="bn btn-warning btn-sm"><i className="far fa-edit"></i> Edit</button>
-                                       <button className="bn btn-danger ml-2 btn-sm"><i className="far fa-trash-alt"></i> Delete</button>
-                                    </td>
-                                 </tr>
-                              </tbody>
-                           </table>
-                        </div>
+                        <TableTask></TableTask>
                      </div>
                   </div>
                </div>
