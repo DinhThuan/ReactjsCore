@@ -1,0 +1,43 @@
+.table tbody tr{
+   vertical-align: middle;
+}
+.label {
+   display: inline;
+   padding: .2em .6em .3em;
+   font-size: 75%;
+   font-weight: 700;
+   line-height: 1;
+   color: #fff;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: baseline;
+   border-radius: .25em;
+}
+
+.label-info {
+   background-color: #5bc0de;
+}
+
+.label-danger {
+   background-color: #d9534f;
+}
+
+.dropdown-toggle::after {
+   display: none;
+}
+.icon-close-header{
+   line-height: 24px;
+}
+.icon-close-header:hover{
+   color: #540606;
+}
+.form-add-task{
+   // display: none;
+}
+.separates{
+   margin: 3px 0px;
+}
+.btn.focus, .btn:focus {
+   outline: 0;
+   box-shadow: none;
+}
