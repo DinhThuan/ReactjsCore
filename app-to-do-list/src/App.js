@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import Header from './components/Header';
-import TableTask from './components/TableTask';
+import Header from './components/header/Header';
+import TableTask from './components/table-task/TableTask';
 
 export default class App extends React.Component {
    state = {
