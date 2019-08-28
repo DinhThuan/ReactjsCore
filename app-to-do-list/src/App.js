@@ -31,7 +31,7 @@ export default class App extends React.Component {
                <Header></Header>
             </div>
             <div className="row">
-               <div className="col-md-4 form-add-task">
+               <div className="col-md-4">
                   {this.state.showAdd &&
                      <div className="card border-success">
                         <div className="card-header text-white bg-success">
