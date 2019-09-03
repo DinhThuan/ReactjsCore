@@ -4,10 +4,10 @@ export default class TableTask extends React.Component {
    state = {
 
    };
-   constructor(props) {
-      super(props);
-      console.log(props);
-   }
+   // constructor(props) {
+   //    super(props);
+   //    console.log(props);
+   // }
    render() {
       return (
          <div className="col">

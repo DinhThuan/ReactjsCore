@@ -4,10 +4,10 @@ export default class Header extends React.Component {
    state = {
 
    };
-   constructor(props) {
-      super(props);
-      console.log(props);
-   }
+   // constructor(props) {
+   //    super(props);
+   //    console.log(props);
+   // }
    render() {
       return (
          <React.Fragment>
@@ -17,4 +17,4 @@ export default class Header extends React.Component {
       );
    }
 }
-
+ 
