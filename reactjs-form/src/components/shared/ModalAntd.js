@@ -2,11 +2,10 @@ import React from 'react';
 import { Modal } from 'antd';
 
 export default class ModalAntd extends React.Component {
-   constructor(props){
-      super(props)
-      console.log('constructor');
-
-   }
+   // constructor(props){
+   //    super(props)
+   //    console.log('constructor');
+   // }
    state = { visible: false };
 
    showModal = () => {
