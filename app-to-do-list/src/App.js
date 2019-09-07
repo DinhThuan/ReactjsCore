@@ -6,7 +6,7 @@ import { Button, Tooltip } from "antd";
 
 export default class App extends React.Component {
    state = {
-      showAdd: false
+      showBtnAdd: false
    };
    constructor(props) {
       super(props);
@@ -20,17 +20,17 @@ export default class App extends React.Component {
    handleAddTask = () => {
       console.log("handle");
       this.setState({
-         showAdd: !this.state.showAdd
+         showBtnAdd: !this.state.showBtnAdd
       });
    };
 
    closeFormAddTask = () => {
       this.setState({
-         showAdd: false
+         showBtnAdd: false
       });
    };
 
-   getWidthtByElement() {}
+   getWidthtByElement() { }
 
    componentDidMount() {
       console.log("componentDidMount");
@@ -45,29 +45,33 @@ export default class App extends React.Component {
 
    render() {
       let text =
-         "The text-overflow property t specifies how overflowed content that is not displayed should be signaled to the user. It can be clipped, display an ellipsis (...), or display a custom string.";
+         "T  he text-overflow  property t specifies how overflowed content that is not displayed should be signaled to the user. It can be clipped, display an ellipsis (...), or display a custom string.";
       return (
          <React.Fragment>
-            <Tooltip placement="topLeft" title={text}>
-               <label ref={this.myInput} className="myInput mt-5">
-                  {text}
-               </label>
-            </Tooltip>
-
+            <div className="row">
+               <div className="col-md-11"></div>
+               <div className="col-md-1">
+                  <Tooltip placement="topLeft" title={text}>
+                     <label ref={this.myInput} className="myInput mt-5">
+                        {text}
+                     </label>
+                  </Tooltip>
+               </div>
+            </div>
             <hr></hr>
             <Button
                type="primary"
                ref="button"
                onClick={this.getWidthtByElement}
             >
-               dinh van thuan
+               Demo Tooltip
             </Button>
             <div>
                <Header></Header>
             </div>
             <div className="row">
                <div className="col-md-4">
-                  {this.state.showAdd && (
+                  {this.state.showBtnAdd && (
                      <div className="card border-success">
                         <div className="card-header text-white bg-success">
                            Add Task{" "}
@@ -114,7 +118,7 @@ export default class App extends React.Component {
                      </div>
                   )}
                </div>
-               <div className={this.state.showAdd ? "col-md-8" : "col-md-12"}>
+               <div className={this.state.showBtnAdd ? "col-md-8" : "col-md-12"}>
                   <div className="App">
                      <div>
                         <button
@@ -196,7 +200,6 @@ export default class App extends React.Component {
                            </div>
                         </div>
                      </div>
-
                      <div className="row">
                         <TableTask></TableTask>
                      </div>
