@@ -5,10 +5,18 @@ export default class TaskList extends React.Component {
    state = {
 
    };
-   // constructor(props) {
-   //    super(props);
-   //    console.log(props);
-   // }
+   constructor(props) {
+      super(props);
+      console.log(this.props.data);
+   }
+   // before render
+   componentWillMount(){
+      console.log('componentWillMount');
+   }
+   // after render
+   componentDidMount(){
+      console.log('componentDidMount');
+   }
    render() {
       return (
          <div className="col">
