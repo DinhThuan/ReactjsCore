@@ -1,0 +1,55 @@
+* {
+   box-sizing: border-box;
+}
+.ant-tooltip-inner{
+   width: 500px;
+}
+.table tbody tr {
+   vertical-align: middle;
+}
+.label {
+   display: inline;
+   padding: 0.2em 0.6em 0.3em;
+   font-size: 75%;
+   font-weight: 700;
+   line-height: 1;
+   color: #fff;
+   text-align: center;
+   white-space: nowrap;
+   vertical-align: baseline;
+   border-radius: 0.25em;
+}
+
+.label-info {
+   background-color: #5bc0de;
+}
+
+.label-danger {
+   background-color: #d9534f;
+}
+
+.dropdown-toggle::after {
+   display: none;
+}
+.icon-close-header {
+   line-height: 24px;
+}
+.icon-close-header:hover {
+   color: #540606;
+}
+.separates {
+   margin: 3px 0px;
+}
+.btn.focus,
+.btn:focus {
+   outline: 0;
+   box-shadow: none;
+}
+.myInput {
+   // border: 1px solid black;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 180px;
+   display: block;
+}

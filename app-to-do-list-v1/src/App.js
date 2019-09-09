@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.scss";
+import Header from "./components/header/Header";
 import TaskList from "./components/task-list/TaskList";
 import TaskForm from "./components/task-form/TaskForm";
 import ControlForm from "./components/control-form/ControlForm";
-import Home from "./components/Home";
 
 export default class App extends React.Component {
    state = {
@@ -47,10 +47,7 @@ export default class App extends React.Component {
       return (
          <React.Fragment>
             <div>
-               <Home></Home>
-            </div>
-            <div>
-               {/* <Header></Header> */}
+               <Header></Header>
             </div>
             <div className="row">
                <div className="col-md-4">
