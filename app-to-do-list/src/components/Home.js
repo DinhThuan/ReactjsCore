@@ -1,46 +1,86 @@
 import React from "react";
+import TaskList from "./components/task-list/TaskList";
+import TaskForm from "./components/task-form/TaskForm";
+import ControlForm from "./components/control-form/ControlForm";
+import Home from "./components/Home";
 
 export default class Home extends React.Component {
-  render() {
-    return (
-      <React.Fragment>
-        <nav className="navbar navbar-dark bg-dark">
-          <a className="navbar-brand" href="www">
-            Navbar
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <a className="nav-item nav-link active" href="www">
-                Home <span className="sr-only">(current)</span>
-              </a>
-              <a className="nav-item nav-link" href="www">
-                Features
-              </a>
-              <a className="nav-item nav-link" href="www">
-                Pricing
-              </a>
-              <a
-                className="nav-item nav-link disabled"
-                href="www"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
+   state = {
+      tasks:[]
+   };
+   constructor(props) {
+      super(props);
+      this.myInput = React.createRef();
+   }
+   handleAddTask = () => {
+      console.log("handle");
+      this.setState({
+      });
+   };
+
+   closeFormAddTask = () => {
+      this.setState({
+         showBtnAdd: false
+      });
+   };
+
+   componentDidMount() {
+      console.log("componentDidMount");
+   }
+
+   generateData = () => {
+      console.log('generate');
+      this.setState({
+         tasks:[
+            {id:1, name:'name',status:'active'},
+            {id:1, name:'name',status:'active'},
+         ]
+      });
+      setTimeout(() => {
+         console.log(this.state.tasks);
+      }, 100);
+      
+   }
+
+   render() {
+      return (
+         <React.Fragment>
+            <div>
+               <Home></Home>
             </div>
-          </div>
-        </nav>
-      </React.Fragment>
-    );
-  }
+            <div>
+               {/* <Header></Header> */}
+            </div>
+            <div className="row">
+               <div className="col-md-4">
+                  <TaskForm></TaskForm>
+               </div>
+               <div className="col-md-8">
+                  <div className="App">
+                     <div>
+                        <button
+                           className="btn btn-primary btn-xs"
+                           onClick={this.handleAddTask}
+                        >
+                           <i className="fas fa-plus"></i> Add task
+                        </button>
+                        <button
+                           className="btn btn-info btn-xs ml-2"
+                           onClick={this.generateData}
+                        >
+                           <i className="fas fa-plus"></i> Generate Data
+                        </button>
+                     </div>
+                     <div className="row mt-3">
+                        <ControlForm></ControlForm>
+                     </div>
+                     <div className="row">
+                        <TaskList data={this.state.tasks}></TaskList>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </React.Fragment>
+      );
+   }
 }
