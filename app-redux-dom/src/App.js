@@ -5,11 +5,14 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
+import Contact from "./components/Contact";
+import NotFound from "./components/NotFound";
 
 export default function App() {
   return (
     <Router>
       <div className="App">
+        {/* menu */}
         <nav className="navbar navbar-expand-sm bg-secondary navbar-dark">
           <ul className="navbar-nav">
             <li className="nav-item active">
@@ -22,12 +25,20 @@ export default function App() {
                 About
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">
+                Contact
+              </Link>
+            </li>
           </ul>
         </nav>
 
         <hr></hr>
-        <Route exact path="/" Component={Home} />
-        <Route path="/about" Component={About} />
+        {/* content */}
+        <Route exact path="/" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+        <Route path="*" exact={true} component={NotFound} />
       </div>
     </Router>
   );
