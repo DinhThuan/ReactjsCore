@@ -2,31 +2,57 @@ import React from "react";
 import "./App.scss";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import ToDo from "./components/todolist/ToDo";
 
 export default class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/home">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contact">
+                Contact
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/to-do-list">
+                To do list
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="container">
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/to-do-list" component={ToDo} />
+          <Route component={NoMatch} />
+        </div>
+      </Router>
+    );
+  }
+}
 
-   render() {
-      return (
-         <Router>
-            <React.Fragment>
-               <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-                  <ul class="navbar-nav">
-                     <li class="nav-item">
-                        <Link to="/"><a class="nav-link">Todo Lists</a></Link>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link">Link 2</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link">Link 3</a>
-                     </li>
-                  </ul>
-               </nav>
-               <Route exact path="/" component={Home} />
-            </React.Fragment>
-            
-         </Router>
-
-      );
-   }
+function NoMatch({ location }) {
+  // console.log({ location });
+  return (
+    <div>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
+  );
 }

@@ -38,8 +38,20 @@ export default function App() {
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/contact" component={Contact} />
-        <Route path="*" exact={true} component={NotFound} />
+        {/* <Route path="*" exact={true} component={NotFound} /> */}
+        <Route component={NoMatch} />
       </div>
     </Router>
+  );
+}
+
+function NoMatch({ location }) {
+  console.log(location);
+  return (
+    <div>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
   );
 }
