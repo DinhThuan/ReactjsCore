@@ -19,6 +19,9 @@ export default class ToDo extends React.Component {
       });
     }
   }
+  componentDidMount() {
+    console.log(this.state.tasks);
+  }
 
   onToggleForm = () => {
     this.setState({

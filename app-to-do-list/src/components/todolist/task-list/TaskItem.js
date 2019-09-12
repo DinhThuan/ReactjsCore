@@ -24,10 +24,12 @@ export default class TaskItem extends React.Component {
           <td>
             <span
               className={
-                task.status === true ? "label label-info" : "label label-danger"
+                task.status === "true"
+                  ? "label label-info"
+                  : "label label-danger"
               }
             >
-              {task.status === true ? "active" : "hidden"}
+              {task.status === "true" ? "active" : "hidden"}
             </span>
           </td>
           <td className="text-center">
