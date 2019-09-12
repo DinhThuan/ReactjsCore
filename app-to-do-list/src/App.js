@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import ToDo from "./components/todolist/ToDo";
+import Login from "./components/Login";
 
 export default class App extends React.Component {
   render() {
@@ -32,6 +33,11 @@ export default class App extends React.Component {
                 To do list
               </Link>
             </li>
+            <li className="nav-item float-right">
+              <Link className="nav-link" to="/login">
+                LOGIN
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="container">
@@ -39,6 +45,7 @@ export default class App extends React.Component {
           <Route exact path="/about" component={About} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/to-do-list" component={ToDo} />
+          <Route exact path="/login" component={Login} />
           <Route component={NoMatch} />
         </div>
       </Router>

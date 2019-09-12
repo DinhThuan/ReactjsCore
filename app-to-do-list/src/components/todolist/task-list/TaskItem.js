@@ -1,54 +1,54 @@
 import React from "react";
+import Popup from "../../Shared/Popup";
 
 export default class TaskItem extends React.Component {
-  state = {
-    lists: []
-  };
   constructor(props) {
     super(props);
-    console.log(props);
+    this.deleteByItem = this.deleteByItem.bind(this);
   }
-  componentDidMount() {
-    // console.log("componentDidMount");
-    this.setState({
-      lists: JSON.parse(localStorage.getItem("users"))
-    });
+  deleteByItem() {
+    console.log(this.props.task);
   }
-  componentWillMount() {
-    let lists = [
-      { id: 1, name: "A", status: "active" },
-      { id: 2, name: "B", status: "inactive" },
-      { id: 3, name: "C", status: "active" },
-      { id: 4, name: "D", status: "active" },
-      { id: 5, name: "E", status: "active" },
-      { id: 5, name: "E", status: "active" },
-      { id: 5, name: "E", status: "active" },
-      { id: 5, name: "E", status: "active" },
-    ];
-    localStorage.setItem("users", JSON.stringify(lists));
-    // console.log("componentWillMount");
-  }
+  updateItem = () => {
+    console.log("update");
+    console.log(this.props.task);
+  };
   render() {
-    let element = this.state.lists.map((list, index) => {
-      return (
-        <tr key={index}>
+    let { task, index } = this.props;
+    // console.log(this.props.task);
+    return (
+      <React.Fragment>
+        <tr>
           <th scope="row">{index + 1}</th>
-          <td>{list.name}</td>
+          <td>{task.name}</td>
           <td>
-            <span className="label label-info">{list.status}</span>
+            <span
+              className={
+                task.status === true ? "label label-info" : "label label-danger"
+              }
+            >
+              {task.status === true ? "active" : "hidden"}
+            </span>
           </td>
           <td className="text-center">
-            <button className="bn btn-warning btn-sm">
-              <i className="far fa-edit"></i> Edit
+            <button className="bn btn-warning btn-sm" onClick={this.updateItem}>
+              <i className="far fa- edit"></i> Edit
             </button>
-            <button className="bn btn-danger ml-2 btn-sm">
+            <button
+              className="bn btn-danger ml-2 btn-sm"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
+              onClick={this.deleteByItem}
+              type="button"
+            >
               <i className="far fa-trash-alt"></i> Delete
             </button>
           </td>
         </tr>
-      );
-    });
-    return <React.Fragment>{element}</React.Fragment>;
+        <tr>
+          <Popup></Popup>
+        </tr>
+      </React.Fragment>
+    );
   }
 }
-
