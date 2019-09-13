@@ -44,6 +44,9 @@ export default class ToDo extends React.Component {
     localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
     console.log(this.state.tasks);
   };
+  handleData(data) {
+    console.log(data);
+  }
   render() {
     let { tasks } = this.state; // var tasks = this.state.tasks
     return (
@@ -71,7 +74,7 @@ export default class ToDo extends React.Component {
                 <ControlForm></ControlForm>
               </div>
               <div className="row">
-                <TaskList tasks={tasks}></TaskList>
+                <TaskList tasks={tasks} handleData={this.handleData}></TaskList>
               </div>
             </div>
           </div>

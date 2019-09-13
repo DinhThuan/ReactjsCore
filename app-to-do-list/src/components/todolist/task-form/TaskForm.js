@@ -5,8 +5,11 @@ export default class TaskForm extends React.Component {
     super(props);
     this.state = {
       name: "",
-      status: -1
+      status: 0
     };
+  }
+  componentWillMount() {
+    this.setState({});
   }
   closeFormAddTask = () => {
     this.props.onCloseForm(false);
@@ -17,9 +20,12 @@ export default class TaskForm extends React.Component {
     this.props.receiveData(this.state);
   };
   handleInputChange = event => {
-    const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    let target = event.target;
+    let value = target.type === "checkbox" ? target.checked : target.value;
+    let name = target.name;
+    if (name === "status") {
+      value = target.value === "true" ? true : false;
+    }
     this.setState({
       [name]: value
     });
@@ -47,6 +53,7 @@ export default class TaskForm extends React.Component {
                   placeholder="Enter name"
                   name="name"
                   onChange={this.handleInputChange}
+                  value={this.state.name}
                 />
               </div>
               <div className="form-group">
@@ -56,6 +63,7 @@ export default class TaskForm extends React.Component {
                   id="status"
                   name="status"
                   onChange={this.handleInputChange}
+                  value={this.state.status}
                 >
                   <option value={0}>Please choose</option>
                   <option value={false}>Hidden</option>

@@ -10,8 +10,9 @@ export default class TaskItem extends React.Component {
     console.log(this.props.task);
   }
   updateItem = () => {
-    console.log("update");
-    console.log(this.props.task);
+    // console.log("update");
+    // console.log(this.props.task);
+    this.props.handleData(this.props.task);
   };
   render() {
     let { task, index } = this.props;
@@ -24,17 +25,15 @@ export default class TaskItem extends React.Component {
           <td>
             <span
               className={
-                task.status === "true"
-                  ? "label label-info"
-                  : "label label-danger"
+                task.status ? "label label-info" : "label label-danger"
               }
             >
-              {task.status === "true" ? "active" : "hidden"}
+              {task.status ? "active" : "hidden"}
             </span>
           </td>
           <td className="text-center">
             <button className="bn btn-warning btn-sm" onClick={this.updateItem}>
-              <i className="far fa- edit"></i> Edit
+              <i className="far fa-edit"></i> Edit
             </button>
             <button
               className="bn btn-danger ml-2 btn-sm"

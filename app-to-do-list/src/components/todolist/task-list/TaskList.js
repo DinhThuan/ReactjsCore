@@ -15,10 +15,22 @@ export default class TaskList extends React.Component {
   componentDidMount() {
     //  console.log("componentDidMount");
   }
+  getDataHandle(data) {
+    console.log(data);
+    // console.log(this.props.task);
+    this.props.handleData2(data);
+  }
   render() {
     let { tasks } = this.props; // var tasks = this.props.tasks;
     let elmTasks = tasks.map((task, index) => {
-      return <TaskItem key={task.id} index={index} task={task}></TaskItem>;
+      return (
+        <TaskItem
+          key={task.id}
+          index={index}
+          task={task}
+          handleData={this.getDataHandle}
+        ></TaskItem>
+      );
     });
     return (
       <React.Fragment>
