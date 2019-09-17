@@ -9,6 +9,7 @@ import {
 
 const postReducer = (state = [], action) => {
   console.log(action.type);
+  console.log(state);
   switch (action.type) {
     case ADD_POST:
       return [

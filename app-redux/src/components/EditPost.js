@@ -10,6 +10,7 @@ export default class EditPost extends Component {
       title: PropTypes.string,
       content: PropTypes.string
     }).isRequired,
+    
     updatePost: PropTypes.func.isRequired
   };
 

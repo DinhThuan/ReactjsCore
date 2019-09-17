@@ -15,7 +15,6 @@ export default class AllPost extends Component {
     return (
       <div>
         <h3>All Posts</h3>
-        
         {this.props.posts.map(post => (
           <div key={post.id}>
             {post.editing ? (

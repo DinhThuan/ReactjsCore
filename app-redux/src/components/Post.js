@@ -36,13 +36,13 @@ export default class Post extends Component {
               </td>
               <td>
                 <button
-                  className="btn btn-warning btn-sm"
+                  className="btn btn-warning"
                   onClick={() => this.props.editPost(this.props.post.id)}
                 >
                   Edit
                 </button>
                 <button
-                  className="ml-2 btn btn-danger btn-sm"
+                  className="ml-2 btn btn-danger"
                   onClick={() => this.props.deletePost(this.props.post.id)}
                 >
                   Delete
