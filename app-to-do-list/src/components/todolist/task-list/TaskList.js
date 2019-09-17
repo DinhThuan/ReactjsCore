@@ -1,8 +1,11 @@
 import React from "react";
 import TaskItem from "./TaskItem";
+import Popup from "../../Shared/Popup";
 
 export default class TaskList extends React.Component {
-  state = {};
+  state = {
+    id: ""
+  };
   // constructor(props) {
   //   super(props);
   //   // console.log(this.props.data);
@@ -20,6 +23,17 @@ export default class TaskList extends React.Component {
     // console.log(this.props.task);
     this.props.handleData2(data);
   }
+  handleDeleteItem = id => {
+    this.setState({
+      id: id
+    });
+  };
+  receiveId = text => {
+    if (text === "yes") {
+      this.props.deleteItem(this.state.id);
+    }
+    return;
+  };
   render() {
     let { tasks } = this.props; // var tasks = this.props.tasks;
     let elmTasks = tasks.map((task, index) => {
@@ -29,6 +43,8 @@ export default class TaskList extends React.Component {
           index={index}
           task={task}
           handleData={this.getDataHandle}
+          onUpdateStatus={this.props.onUpdateStatus}
+          deleteItem={this.handleDeleteItem}
         ></TaskItem>
       );
     });
@@ -67,6 +83,7 @@ export default class TaskList extends React.Component {
               {elmTasks}
             </tbody>
           </table>
+          <Popup receiveId={this.receiveId}></Popup>
         </div>
       </React.Fragment>
     );

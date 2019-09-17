@@ -1,6 +1,14 @@
 import React from "react";
-
+import "./Popup.scss";
 export default class Popup extends React.Component {
+  noAction = () => {
+    console.log("no");
+  };
+  yesAction = () => {
+    console.log("yes");
+    console.log(this.props);
+    this.props.receiveId('yes');
+  };
   render() {
     return (
       <React.Fragment>
@@ -24,19 +32,25 @@ export default class Popup extends React.Component {
                 </button>
               </div>
               <div className="modal-body">
-                <b>Are you sure delete this task?</b>
+                <b>Are you sure you want to delete?</b>
                 <br></br>
-                <i> Some descriptions</i>
+                <i> This operation is not refundable</i>
               </div>
               <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-secondary"
                   data-dismiss="modal"
+                  onClick={this.noAction}
                 >
                   No
                 </button>
-                <button type="button" className="btn btn-danger btn-xs">
+                <button
+                  type="button"
+                  className="btn btn-danger btn-xs"
+                  data-dismiss="modal"
+                  onClick={this.yesAction}
+                >
                   Yes
                 </button>
               </div>

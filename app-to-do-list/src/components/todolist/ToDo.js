@@ -20,7 +20,7 @@ export default class ToDo extends React.Component {
     }
   }
   componentDidMount() {
-    console.log(this.state.tasks);
+    // console.log(this.state.tasks);
   }
 
   onToggleForm = () => {
@@ -42,12 +42,46 @@ export default class ToDo extends React.Component {
       isDisplayForm: false
     });
     localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
-    console.log(this.state.tasks);
+    // console.log(this.state.tasks);
   };
   handleData(data) {
     console.log(data);
+    debugger;
   }
-  render() {
+  onUpdateStatus = id => {
+    let arr = [];
+    this.state.tasks.forEach((task, index) => {
+      if (task.id === id) {
+        task.status = !task.status;
+        arr.push(task);
+      } else {
+        arr.push(task);
+      }
+    });
+
+    this.setState({
+      tasks: arr
+    });
+    localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+  };
+
+  deleteItemById = id => {
+    console.log(id);
+    let arr = [];
+    for (let i = 0; i < this.state.tasks.length; i++) {
+      if (this.state.tasks[i].id !== id) {
+        arr.push(this.state.tasks[i]);
+      }
+    }
+    this.setState({
+      tasks: arr
+    });
+    // console.log(arr);
+    // localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+    localStorage.setItem("tasks", JSON.stringify(arr));
+  };
+
+  render() { 
     let { tasks } = this.state; // var tasks = this.state.tasks
     return (
       <React.Fragment>
@@ -74,7 +108,12 @@ export default class ToDo extends React.Component {
                 <ControlForm></ControlForm>
               </div>
               <div className="row">
-                <TaskList tasks={tasks} handleData={this.handleData}></TaskList>
+                <TaskList
+                  tasks={tasks}
+                  handleData={this.handleData}
+                  onUpdateStatus={this.onUpdateStatus}
+                  deleteItem={this.deleteItemById}
+                ></TaskList>
               </div>
             </div>
           </div>

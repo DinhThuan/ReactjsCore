@@ -1,18 +1,23 @@
 import React from "react";
-import Popup from "../../Shared/Popup";
-
+import "./TaskItem.scss";
 export default class TaskItem extends React.Component {
   constructor(props) {
     super(props);
     this.deleteByItem = this.deleteByItem.bind(this);
   }
   deleteByItem() {
-    console.log(this.props.task);
+    this.props.deleteItem(this.props.task.id);
+    // console.log(this.props.task);
   }
+
   updateItem = () => {
     // console.log("update");
     // console.log(this.props.task);
     this.props.handleData(this.props.task);
+  };
+  onUpdateStatus = () => {
+    // console.log(this.props.task.id);
+    this.props.onUpdateStatus(this.props.task.id);
   };
   render() {
     let { task, index } = this.props;
@@ -25,8 +30,11 @@ export default class TaskItem extends React.Component {
           <td>
             <span
               className={
-                task.status ? "label label-info" : "label label-danger"
+                task.status
+                  ? "label label-info label-status"
+                  : "label label-danger label-status"
               }
+              onClick={this.onUpdateStatus}
             >
               {task.status ? "active" : "hidden"}
             </span>
@@ -45,9 +53,6 @@ export default class TaskItem extends React.Component {
               <i className="far fa-trash-alt"></i> Delete
             </button>
           </td>
-        </tr>
-        <tr>
-          <Popup></Popup>
         </tr>
       </React.Fragment>
     );
