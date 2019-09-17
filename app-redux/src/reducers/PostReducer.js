@@ -8,6 +8,7 @@ import {
 } from "../constants/PostTypes";
 
 const postReducer = (state = [], action) => {
+  console.log(action.type);
   switch (action.type) {
     case ADD_POST:
       return [
