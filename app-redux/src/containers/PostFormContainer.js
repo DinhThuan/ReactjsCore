@@ -7,6 +7,7 @@ import PostForm from "../components/AddPost";
 
 class PostFormContainer extends Component {
   render() {
+    console.log(this.props);
     return <PostForm addPost={this.props.addPost} />;
   }
 }

@@ -22,10 +22,10 @@ export default class Post extends Component {
           <tbody>
             <tr>
               <td>
-                <h2>{this.props.post.title}</h2>
+                <span>{this.props.post.title}</span>
               </td>
               <td>
-                <p>{this.props.post.content}</p>
+                <span>{this.props.post.content}</span>
               </td>
               <td>
                 {" "}
