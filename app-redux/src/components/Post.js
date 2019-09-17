@@ -18,7 +18,14 @@ export default class Post extends Component {
     console.log(this.props.post);
     return (
       <div>
-        <table border="1">
+        <table className="table table-bordered table-sm">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>content</th>
+              <th className="btn-action">Action</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>
@@ -28,13 +35,14 @@ export default class Post extends Component {
                 <span>{this.props.post.content}</span>
               </td>
               <td>
-                {" "}
-                <button onClick={() => this.props.editPost(this.props.post.id)}>
+                <button
+                  className="btn btn-warning btn-sm"
+                  onClick={() => this.props.editPost(this.props.post.id)}
+                >
                   Edit
                 </button>
-              </td>
-              <td>
                 <button
+                  className="ml-2 btn btn-danger btn-sm"
                   onClick={() => this.props.deletePost(this.props.post.id)}
                 >
                   Delete
