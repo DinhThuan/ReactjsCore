@@ -16,6 +16,12 @@ export default class Post extends Component {
 
   render() {
     console.log(this.props.post);
+    let arr = [];
+    arr.push({
+      title: this.props.post.title,
+      content: this.props.post.content
+    });
+    console.log(arr);
     return (
       <div>
         <table className="table table-bordered table-sm">

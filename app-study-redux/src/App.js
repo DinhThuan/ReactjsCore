@@ -6,7 +6,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Demo></Demo>
+        <Demo
+          name={"Thomas"}
+          age={27}
+          car={{ registrationNumber: "tony", year: 27 }}
+        ></Demo>
       </div>
     );
   }
