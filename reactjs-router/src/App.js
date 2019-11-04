@@ -13,7 +13,7 @@ class App extends React.Component {
       let result = null;
       if (routes.length > 0) {
          result = routes.map((route, index) => {
-            console.log(route.main);
+            // console.log(route.main);
             return (
                <Route
                   key={index}
