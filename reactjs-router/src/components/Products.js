@@ -40,6 +40,9 @@ class Products extends React.Component {
          });
       }
 
+      let { location } = this.props;
+      console.log(location);
+
       return (
          <div>
             <div>
